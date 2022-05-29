@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Iceland', cursive;
+    font-size: 22px;
+    font-weight: 400;
+    color: #efefef;
+    overflow: hidden;
+}
+
+.root {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+h6 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.header {
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.menu {
+    width: 60px;
+    height: 100%;
+    background-color: #222;
+    padding: 5px 5px;
+    color: #efefef;
+    font-size: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 999;
+}
+
+.menu:hover .hamburger {
+    position: relative;
+    width: 100%;
+}
+
+.menu:hover .logo {
+    position: relative;
+    width: 100%;
+}
+
+.menu:hover .hamburger::before {
+    content: "Menu";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.menu:hover .logo::before {
+    content: "CALANDER.IO";
+}
+
+@keyframes back {
+    from {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 0 -50px;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+
+.heroBtnInput {
+    padding: 15px 10px;
+    background-color: #222;
+    font-weight: 700;
+    z-index: 999;
+    color: #efefef;
+}
+
+.heroBtnInput:hover {
+    cursor: pointer;
+}
+
+.shadow {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background-color: #efefef;
+}
+
+.heroBtnInput:hover ~ .shadow {
+    bottom: 0;
+    right: 0;
+    transition: all .2s ease-in-out;
+}
+.menu:hover {
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 999;
+    width: 300px;
+    transition: all .1s ease-in-out;
+    text-align: right;
+    padding: 10px 20px;
+}
+
+.sign:hover {
+    width: 150px;
+    display: flex;
+    transition: .1s;
+    cursor: pointer;
+}
+
+.sign:hover .user {
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: row;
+}
+
+.sign:hover .user::after {
+    content: "Sign Up";
+    text-align: right;
+    display: block;
+    font-size: 28px;
+    font-size: 20px;
+    margin-left: 15px;
+    line-height: 200%;
+}
+
+.menu:hover ~ .flex {
+    margin-left: 60px;
+}
+
+.heroBtn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.desc {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+.flex {
+    background: url("./assets/heroImage.jpg");
+    background-position: 0 0;
+    background-size: cover;
+    width: calc(100% - 60px);
+    animation-name: back;
+    animation-duration: 30s; 
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.content {
+    height: calc(100% - 350px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    height: 350px;
+    display: flex;
+    color: #efefef;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+}
+
+.deco {
+    width: 150%;
+    height: 350px;
+    bottom: -60%;
+    right: -100px;
+    border-top: 5px solid #efefef;
+    transform: rotateZ(-5deg);
+    position: absolute;
+    background-color: #222;
+}
+
+.socials {
+    width: 30%;
+    height: 150px;
+    background-color: #222;
+    padding: 10px 20px;
+    z-index: 999;
+}
+
+a {
+    text-decoration: none;
+    color: #efefef;
+    font-weight: 700;
+}
+
+.rights {
+    width: 100%;
+    background-color: #222;
+    height: 40px;
+    padding: 0 20px;
+    line-height: 150%;
+    z-index: 500;
+}
+
+.hamburger, .logo, .user {
+    height: 40px;
+}
+
+
+
+.hamburger, .logo {
+   height: 60px;
+   padding: 10px 0;
+}
+
+.sign {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+    padding: 10px 10px;
+    background-color: #222;
+    color: #efefef
+}
