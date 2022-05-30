@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Hero = () => {
     return ( 
         <main className="content">
@@ -11,10 +13,10 @@ const Hero = () => {
                     clicking on this button:
                 </p>
             </article>
-            <section className="heroBtn">
-                <input type="button" value="TRY FRO FREE" className="heroBtnInput" />
+            <Link to="/Register" className="heroBtn">
+                <span type="button" className="heroBtnInput">TRY FRO FREE</span>
                 <div className="shadow"></div>
-            </section>
+            </Link>
         </main>
      );
 }
