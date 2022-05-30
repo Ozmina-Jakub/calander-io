@@ -14,7 +14,7 @@ const Hero = () => {
                 </p>
             </article>
             <Link to="/Register" className="heroBtn">
-                <span type="button" className="heroBtnInput">TRY FRO FREE</span>
+                <span type="button" className="heroBtnInput">TRY FOR FREE</span>
                 <div className="shadow"></div>
             </Link>
         </main>
