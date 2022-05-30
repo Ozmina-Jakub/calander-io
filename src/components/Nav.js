@@ -1,33 +1,37 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBars} from '@fortawesome/free-solid-svg-icons';
-import {useState} from 'react';
 import {faClipboardCheck} from '@fortawesome/free-solid-svg-icons';
 import {faAddressCard, faPhone} from '@fortawesome/free-solid-svg-icons';
+import { Link } from "react-router-dom";
 
-const Nav = () => {
-    const [isUserInMenu, setIsUserInMenu] = useState(false);
+const Nav = ({utilState}) => {
+    const handleSiteRedirect = e => utilState.setutilState(prevState => ({...prevState, isInRedirerctedSite: true, onSite: e.target.name}))
+
     return ( 
-        <nav className="menu" onMouseEnter={() => setIsUserInMenu(true)} onMouseLeave={() => setIsUserInMenu(false)}>
-            <div className="hamburger">
+        <nav className="menu" onMouseEnter={() => utilState.setutilState(prevState => ({...prevState, isInMenu: true}))} onMouseLeave={() => utilState.setutilState(prevState => ({...prevState, isInMenu: false}))}>
+            <div className="menuOpt hamburger" style={utilState.utilState.onSite === "home" ? {backgroundColor: "#202020"} : {}} onClick={() => utilState.utilState.isInRedirerctedSite && utilState.setutilState(prevState => ({...prevState, isInRedirerctedSite: false, onSite: "home"}))}>
+                {utilState.utilState.isInMenu && <span className='text'>{utilState.utilState.isInRedirerctedSite ? <Link to="/">Home</Link> : "Menu"}</span>}
                 <FontAwesomeIcon className='menuIco' icon={faBars} />
-            </div>
+            </div> {/* change menu option to redirect on div click instead text click */}
             {
-                isUserInMenu && <>
-                    <div className='menuOpt About'>
+                utilState.utilState.isInMenu && <>
+                    <div className='menuOpt About' style={utilState.utilState.onSite === "about" ? {backgroundColor: "#202020"} : {}} onClick={e => handleSiteRedirect(e)}>
                         <span className="text">
-                            About
+                            <Link to="/About" name="about">About</Link>
                         </span>
                         <FontAwesomeIcon icon={faAddressCard} />
                     </div>
-                    <div className='menuOpt Contact'>
+                    <div className='menuOpt Contact' style={utilState.utilState.onSite === "contact" ? {backgroundColor: "#202020"} : {}} onClick={e => handleSiteRedirect(e)}>
                         <span className="text">
-                            Contact
+                            <Link to="/Contact" name="contact">Contact</Link>
                         </span>
                         <FontAwesomeIcon icon={faPhone} />
                     </div>
                 </>
             }
-            <div className="logo">
+            <div className="menuOpt logo">
+                
+                {utilState.utilState.isInMenu && <span className='text'>CALANDER.IO</span>}
                 <FontAwesomeIcon className='logoIco' icon={faClipboardCheck} />
             </div>
         </nav>
