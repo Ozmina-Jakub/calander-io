@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
     const emailRef = useRef();
     const passwdRef = useRef();
-    const { login, currentUser } = useAuth();
+    const { login } = useAuth();
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
@@ -35,7 +35,7 @@ const Login = () => {
                     <label htmlFor="email">E-mail:<input type="email" name="email" ref={emailRef} id="email" /></label>
                     <label htmlFor="passwd">Password: <input type="password" ref={passwdRef} name="passwd" id="passwd" /></label>
                     {error !== "" && <p className="error">{error}</p>}
-                    <label htmlFor="submit"><input type="submit" value="Sign Up" /></label>
+                    <label htmlFor="submit"><input type="submit" value="Sign Up" disabled={loading}/></label>
                     <p>New Here? <Link to="/Register">Create Free Account</Link></p>
                 </form>
             </div>

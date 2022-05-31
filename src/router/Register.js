@@ -7,7 +7,7 @@ const Register = () => {
     const emailRef = useRef();
     const passwdRef = useRef();
     const cpasswdRef = useRef();
-    const { signup, currentUser } = useAuth();
+    const { signup } = useAuth();
     const [error, setError] = useState("");
     const [succes, setSucces] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -28,16 +28,17 @@ const Register = () => {
             setError("");
             setLoading(true);
             await signup(emailRef.current.value, passwdRef.current.value);
-            setSucces(true);
-            setTimeout(() => {
-                setSucces(false);
-                navigate("/Dashboard");
-            }, 3000);
         } catch {
-            setError("Failed to create an account.")
+            setLoading(false);
+            return setError("Failed to create an account.")
         }
 
         setLoading(false);
+        setSucces(true);
+        setTimeout(() => {
+            setSucces(false);
+            navigate("/Dashboard");
+        }, 3000);
     }
 
     return ( 
