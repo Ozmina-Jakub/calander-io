@@ -246,7 +246,7 @@ a {
 }
 
 .form {
-    width: 400px;
+    width: 500px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -264,7 +264,7 @@ label {
     justify-content: space-between;
 }
 
-input {
+.form input {
     width: 50%;
     padding: 10px 5px;
 }

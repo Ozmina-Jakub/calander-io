@@ -1,16 +1,14 @@
-import {initializeApp} from "firebase/app";
-import "firebase/auth";
-import { getAnalytics } from "firebase/analytics";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
-export const app = initializeApp({
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MESURMENT_ID
+export const app = firebase.initializeApp({
+  apiKey: "AIzaSyBd8pC7Jlh3218yL1NIANetXf4IgFioo2g",
+  authDomain: "calander-io.firebaseapp.com",
+  projectId: "calander-io",
+  storageBucket: "calander-io.appspot.com",
+  messagingSenderId: "779193475272",
+  appId: "1:779193475272:web:6f24c81a9b3aa4eb8185fd",
+  measurementId: "G-ND73SJZGTR"
 });
 
-export const analytics = getAnalytics(app);
 export const auth = app.auth();

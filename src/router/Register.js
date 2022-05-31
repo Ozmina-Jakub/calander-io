@@ -15,7 +15,7 @@ const Register = () => {
         e.preventDefault();
 
         if(passwdRef.current.value !== cpasswdRef.current.value) {
-            setError("Psswords do not match.")
+            return setError("Psswords do not match.")
         }
 
         try {
@@ -23,7 +23,7 @@ const Register = () => {
             setLoading(true);
             await signup(emailRef.current.value, passwdRef.current.value);
         } catch {
-            setError("Failde to create an account.")
+            setError("Failed to create an account.")
         }
         setLoading(false);
     }
@@ -33,9 +33,9 @@ const Register = () => {
             <div className="inner reg">
                 <h1>Register</h1>
                 <form className="form" onSubmit={handleSubmit}>
-                    <label htmlFor="email">E-mail:</label><input type="email" name="email" ref={emailRef} id="email" />
-                    <label htmlFor="passwd">Password:</label> <input type="password" ref={passwdRef} name="passwd" id="passwd" />
-                    <label htmlFor="cpasswd">Confirm Password:</label> <input type="password" ref={cpasswdRef} name="cpasswd" id="cpasswd" />
+                    <label htmlFor="email">E-mail:<input type="email" name="email" ref={emailRef} id="email" /></label>
+                    <label htmlFor="passwd">Password: <input type="password" ref={passwdRef} name="passwd" id="passwd" /></label>
+                    <label htmlFor="cpasswd">Confirm Password: <input type="password" ref={cpasswdRef} name="cpasswd" id="cpasswd" /></label>
                     {error !== "" && <p className="error">{error}</p>}
                     <label htmlFor="submit"><input type="submit" value="Sign Up" disabled={loading}/></label>
                     <p>Already have an account? <Link to="/Login">Log In</Link></p>
