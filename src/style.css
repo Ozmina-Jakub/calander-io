@@ -12,9 +12,168 @@ body {
     font-size: 22px;
     font-weight: 400;
     color: #efefef;
-    overflow: hidden;
 }
 
+#root {
+    height: 100vh;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.sign {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 40px;
+    background-color: #222;
+    padding: 10px 10px;
+    height: 60px;
+}
+
+.sign:hover {
+    width: 150px;
+    cursor: pointer;
+}
+
+.sign:hover .user::after {
+    content: "Sign Up";
+    font-size: 24px;
+    position: absolute;
+    right: 10px;
+    top: 18px;
+    transition: all .2s ease-in-out;
+}
+
+.user {
+    height: 100%;
+}
+
+.menu {
+    width: 60px;
+    height: 100%;
+    background-color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 40px;
+}
+
+.menu:hover {
+    width: 300px;
+    transition: all .1s ease-in-out;
+}
+
+.menuOpt {
+    padding: 10px 10px;
+    width: 60px;
+    height: 60px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.menu:hover .menuOpt {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.menu:hover svg {
+    display: block;
+    width: 60px;
+    text-align: center;
+}
+
+.logo {
+    margin-top: auto;
+}
+
+.flex {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    height: 100%;
+    background: url("./assets/heroImage.jpg");
+    background-size: cover;
+    animation-name: siteBck;
+    animation-duration: 30s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes siteBck {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 0 -30px;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 80px;
+}
+
+.footer {
+    height: 200px;
+    background-color: #222;
+    position: relative;
+}
+
+.socials {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 350px;
+    flex-direction: column;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+h6 {
+    font-size: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: #efefef;
+    font-weight: 700;
+}
+
+.rights {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+
+.footer::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -25%;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #222;
+    border-top: 5px solid #efefef;
+    transform: skewY(-2deg);
+}
+
+/*
 .menuOpt {
     display: flex;
     flex-direction: row;
@@ -23,7 +182,7 @@ body {
     padding: 10px 20px;
 }
 
-.root {
+#root {
     height: 100vh;
     position: relative;
     display: flex;
@@ -315,3 +474,4 @@ a {
     cursor: pointer;
     background-color: #202020;
 }
+*/
