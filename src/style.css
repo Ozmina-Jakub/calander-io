@@ -255,6 +255,10 @@ a {
     margin: 15px auto;
 }
 
+.success {
+    color: rgb(73, 218, 54);
+}
+
 label {
     width: 100%;
     display: flex;
