@@ -1,9 +1,9 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBars} from '@fortawesome/free-solid-svg-icons';
-import {faClipboardCheck} from '@fortawesome/free-solid-svg-icons';
 import {faAddressCard, faPhone} from '@fortawesome/free-solid-svg-icons';
 import { Link } from "react-router-dom";
 import {useState} from 'react';
+import logo from './../assets/logo.png';
 
 const Nav = () => {
     const [utilState, setutilState] = useState({isInMenu: false, isInRedirerctedSite: false, onSite: "home"});
@@ -35,7 +35,7 @@ const Nav = () => {
             <div className="menuOpt logo">
                 
                 {utilState.isInMenu && <span className='text'>CALANDER.IO</span>}
-                <FontAwesomeIcon className='logoIco' icon={faClipboardCheck} />
+                <img src={logo} className="logoImg" alt="CALANDER.IO" />
             </div>
         </nav>
      );

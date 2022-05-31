@@ -6,21 +6,26 @@ import { Routes, Route } from "react-router-dom";
 import Contact from './router/Contact';
 import About from './router/About';
 import Register from './router/Register';
+import Login from './router/Login';
+import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
   return (
     <>
-      <Nav></Nav>
-      <Account></Account>
-      <div className="flex">
-        <Routes>
-          <Route path="/" element={<Hero></Hero>}/>
-          <Route path="/Contact" element={<Contact/>} />
-          <Route path="/About" element={<About/>} />
-          <Route path="/Register" element={<Register/>}/>
-        </Routes>{/* TODO: make proper anim on page redirect */}
-        <Footer></Footer>
-      </div>
+      <AuthProvider>
+        <Nav></Nav>
+        <Account></Account>
+        <div className="flex">
+          <Routes>
+            <Route path="/" element={<Hero></Hero>}/>
+            <Route path="/Contact" element={<Contact/>} />
+            <Route path="/About" element={<About/>} />
+            <Route path="/Register" element={<Register/>}/>
+            <Route path="/Login" element={<Login/>}/>
+          </Routes>{/* TODO: make proper anim on page redirect */}
+          <Footer></Footer>
+        </div>
+      </AuthProvider>
     </>
   );
 }
