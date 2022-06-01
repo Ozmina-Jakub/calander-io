@@ -26,7 +26,6 @@ const Login = () => {
         setLoading(false);
     }
 
-
     return ( 
         <main className="content adder">
             <div className="inner reg">
@@ -41,7 +40,7 @@ const Login = () => {
             </div>
             <div className="decor"></div>
         </main>
-     );
+    );
 }
  
 export default Login;
