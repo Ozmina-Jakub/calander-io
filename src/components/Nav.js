@@ -8,6 +8,7 @@ import { useAuth } from '../context/AuthContext';
 
 const Nav = () => {
     const [utilState, setutilState] = useState({isInMenu: false, isInRedirerctedSite: false, onSite: "home"});
+    //TODO: Set util state in App and pass it to childrens
 
     const { currentUser, logout } = useAuth();
 
@@ -44,9 +45,7 @@ const Nav = () => {
             }
             {
                 utilState.isInMenu && currentUser && <>
-                    <div className="menuOpt LogOut" onClick={async () => {
-                        await logout();
-                    }}>
+                    <div className="menuOpt LogOut" onClick={async () => await logout()}>
                     <span className="text">
                             <Link to="/" name="contact">LogOut</Link>
                         </span>

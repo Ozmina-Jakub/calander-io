@@ -7,6 +7,7 @@ import Contact from './router/Contact';
 import About from './router/About';
 import Register from './router/Register';
 import Login from './router/Login';
+import Tasks from './router/Tasks';
 import { AuthProvider } from './context/AuthContext';
 import Dashboard from './router/Dashboard';
 
@@ -18,12 +19,13 @@ const App = () => {
         <Account></Account>
         <div className="flex">
           <Routes>
-            <Route path="/" element={<Hero></Hero>}/>
+            <Route exact path="/" element={<Hero></Hero>}/>
             <Route path="/Contact" element={<Contact/>} />
             <Route path="/About" element={<About/>} />
             <Route path="/Register" element={<Register/>}/>
             <Route path="/Login" element={<Login/>}/>
             <Route path="/Dashboard" element={<Dashboard/>}/>
+            <Route path="/Tasks" element={<Tasks/>}/>
           </Routes>{/* TODO: make proper anim on page redirect */}
           <Footer></Footer>
         </div>

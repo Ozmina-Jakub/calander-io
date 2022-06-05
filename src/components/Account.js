@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import { useAuth } from '../context/AuthContext';
 
 const Account = () => {
-    if(useAuth.currentUser !== {}) {
+    const { currentUser } = useAuth();
+    if(currentUser) {
         return ( 
-            <Link to="/Login">
+            <Link to="/Dashboard">
                 <section className="sign">
-                    <div className="user">
+                    <div className="account">
                         <FontAwesomeIcon icon={faCircleUser} />
                     </div>
                 </section>
@@ -16,9 +17,9 @@ const Account = () => {
          );
     } else {
         return ( 
-            <Link to="/Dashboard">
+            <Link to="/Login">
                 <section className="sign">
-                    <div className="account">
+                    <div className="user">
                         <FontAwesomeIcon icon={faCircleUser} />
                     </div>
                 </section>

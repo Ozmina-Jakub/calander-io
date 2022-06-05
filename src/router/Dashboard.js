@@ -1,5 +1,5 @@
 import { useAuth } from '../context/AuthContext';
-
+import { Link } from "react-router-dom";
 const Dashboard = () => {
 
     const { currentUser } = useAuth();
@@ -8,9 +8,10 @@ const Dashboard = () => {
         <main className="content adder">
             <div className="inner">
                 <h1>Welcome {currentUser.email}</h1>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae aspernatur perferendis non id, numquam dolorem pariatur qui quae distinctio deleniti quasi magni doloremque voluptates accusamus voluptatibus dolores nesciunt officiis incidunt?
+                <div className="opts">
+                    <Link to="/tasks"><input type="button" value="Tasks" /></Link>
+                </div>
             </div>
-            <div className="decor"></div>
         </main>
      );
 }
