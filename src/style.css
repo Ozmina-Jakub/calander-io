@@ -37,6 +37,91 @@ body {
     cursor: pointer;
 }
 
+.optBtn {
+    width: 250px;
+    border-radius: 5px;
+    color: #222;
+    margin-top: 15px;
+    font-size: 28px;
+    height: 100px;
+    background-color: #efefef;
+    transition: all .2s ease-in-out;
+}
+
+.taskLister {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.reset {
+    position: absolute;
+    top: 5px;
+    padding: 5px 5px;
+    background-color: rgb(228, 57, 57);
+    border-radius: 5px;
+    color: #efefef;
+    font-weight: 700;
+    right: 5px;
+}
+
+.reset:hover {
+    cursor: pointer;
+}
+
+.taskLister > li {
+    width: 250px;
+    min-height: 40px;
+    border-radius: 5px;
+    background-color: #efefef;
+    color: #222;
+    margin: 5px 5px;
+    padding: 5px 5px;
+    position: relative;
+    transition: all .1s ease-in-out;
+}
+
+.taskLister > li:hover {
+    min-height: 100px;
+    transition: all .1s ease-in-out;
+}
+
+.taskOptBtn {
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+}
+
+.taskOptBtn:hover {
+    cursor: pointer;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.taskList {
+    width: calc(100% - 200px);
+    height: 100%;
+}
+
+.opts {
+    width: 200px;
+    height: 100%;
+}
+
+.optBtn:hover {
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    background-color: aqua;
+    color: #efefef;
+}
+
 .sign:hover .user::after {
     content: "Sign Up";
     font-size: 24px;
@@ -300,306 +385,3 @@ input[type='submit'] {
     border-top: 5px solid #efefef;
     transform: skewY(-2deg);
 }
-
-/*
-.menuOpt {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-#root {
-    height: 100vh;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-h6 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.header {
-    text-decoration: underline;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-}
-
-.menu {
-    width: 60px;
-    height: 100%;
-    background-color: #222;
-    padding: 5px 5px;
-    position: sticky;
-    top: 0;
-    left: 0;
-    color: #efefef;
-    font-size: 40px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    z-index: 999;
-}
-
-.menu:hover .hamburger {
-    position: relative;
-    width: 100%;
-}
-
-.menu:hover .logo {
-    position: relative;
-    width: 100%;
-}
-@keyframes back {
-    from {
-        background-position: 0 0;
-    }
-    50% {
-        background-position: 0 -50px;
-    }
-    to {
-        background-position: 0 0;
-    }
-}
-
-.heroBtnInput {
-    padding: 15px 10px;
-    background-color: #222;
-    font-weight: 700;
-    z-index: 999;
-    color: #efefef;
-}
-
-.heroBtnInput:hover {
-    cursor: pointer;
-}
-
-.shadow {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    bottom: -5px;
-    right: -5px;
-    background-color: #efefef;
-}
-
-.heroBtnInput:hover ~ .shadow {
-    bottom: 0;
-    right: 0;
-    transition: all .2s ease-in-out;
-}
-
-.menu:hover {
-    position: absolute;
-    top:0;
-    left: 0;
-    z-index: auto;
-    width: 300px;
-    transition: all .1s ease-in-out;
-    text-align: right;
-    padding: 10px 0;
-}
-
-.sign:hover {
-    width: 150px;
-    display: flex;
-    transition: .1s;
-    cursor: pointer;
-}
-
-.sign:hover .user {
-    justify-self: flex-start;
-    display: flex;
-    flex-direction: row;
-}
-
-.sign:hover .user::after {
-    content: "Sign Up";
-    text-align: right;
-    display: block;
-    position: absolute;
-    font-size: 28px;
-    font-size: 20px;
-    margin-left: 15px;
-    line-height: 200%;
-}
-
-.menu:hover ~ .flex {
-    margin-left: 60px;
-}
-
-.heroBtn {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.desc {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100px;
-    margin-bottom: 15px;
-}
-
-.flex {
-    background: url("./assets/heroImage.jpg");
-    background-position: 0 0;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    animation-name: back;
-    position: absolute;
-    transition: all .2s;
-    z-index: -1;
-    animation-duration: 30s; 
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-}
-
-.inner {
-    width: 500px;
-}
-
-.contact {
-    position: relative;
-}
-
-.inner {
-    z-index: 500;
-}
-
-.contact .decor {
-    position: absolute;
-    top: 145px;
-    left: 0;
-    width: 100%;
-    height: calc(100% + 43px);
-    transform: skewY(-5deg);
-    border-top: 5px solid #efefef;
-    background-color: #222;
-}
-
-.content {
-    height: calc(100% - 300px);
-    display: flex;
-    background-color: transparent;
-    z-index: 99999999;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer {
-    height: 350px;
-    display: flex;
-    position: relative;
-    color: #efefef;
-    justify-content: flex-end;
-    flex-direction: column;
-    align-items: flex-end;
-    position: relative;
-}
-
-.deco {
-    width: 150%;
-    height: 350px;
-    bottom: -60%;
-    right: -100px;
-    border-top: 5px solid #efefef;
-    transform: rotateZ(-5deg);
-    position: absolute;
-    background-color: #222;
-}
-
-.socials {
-    width: 30%;
-    height: 150px;
-    background-color: #222;
-    padding: 10px 20px;
-    z-index: 999;
-    position: absolute;
-    right: 0;
-    top: 150px;
-}
-
-a {
-    text-decoration: none;
-    color: #efefef;
-    font-weight: 700;
-}
-
-.rights {
-    width: 100%;
-    background-color: #222;
-    height: 40px;
-    padding: 0 20px;
-    line-height: 150%;
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
-    z-index: 500;
-}
-
-.hamburger, .logo, .user {
-    height: 40px;
-}
-
-.menu:hover .hamburger {
-   padding: 10px 25px;
-   justify-content: space-between;
-}
-
-.menu:hover, .logo {
-    justify-content: space-between;
-}
-
-.hamburger, .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.hamburger > svg, .logo > svg {
-    display: block;
-}
-
-.hamburger, .logo {
-   height: 60px;
-   padding: 10px 5px;
-   font-weight: 700;
-}
-.hamburger:hover {
-    
-   cursor: pointer;
-   background-color: #202020;
-}
-.sign {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 40px;
-    text-align: center;
-    width: 60px;
-    height: 60px;
-    padding: 10px 10px;
-    background-color: #222;
-    color: #efefef
-}
-
-.logo {
-    margin-top: auto;
-}
-
-.menuOpt:hover {
-    cursor: pointer;
-    background-color: #202020;
-}
-*/

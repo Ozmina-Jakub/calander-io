@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
 
 const Register = () => {
     const emailRef = useRef();
@@ -12,6 +13,17 @@ const Register = () => {
     const [succes, setSucces] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+
+    const initTask = () => {
+        let docRef = doc(collection(getFirestore(), 'userTasks'));
+        setDoc(docRef, {
+            email: emailRef.current.value,
+            id: docRef.id,
+            todo: [
+
+            ]
+        })
+    }
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -33,6 +45,7 @@ const Register = () => {
             return setError("Failed to create an account.")
         }
 
+        initTask();
         setLoading(false);
         setSucces(true);
         setTimeout(() => {
