@@ -83,7 +83,7 @@ const Tasks = () => {
                                     {ele.desc} 
                                     <input type="button" value="X" className='reset' onClick={() => reset(i)} />
                                     <input type="button" value="C" className='change' onClick={handleChangeProps} />
-                                    {taskUtils.overTaskListEle.is === true && 
+                                    {taskUtils.overTaskListEle && taskUtils.overTaskListEle.is === true && 
                                         <>
                                             {taskUtils.isChangingProps && 
                                                 <div className={taskUtils.overTaskListEle.ele === i ? "block changeProps" : "none changeProps"}>
