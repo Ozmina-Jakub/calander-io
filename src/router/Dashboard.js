@@ -9,7 +9,9 @@ const Dashboard = () => {
             <div className="inner">
                 <h1>Welcome {currentUser.email}</h1>
                 <div className="opts">
-                    <Link to="/tasks"><input className='optBtn' type="button" value="Tasks" /></Link>
+                    <Link to="/Tasks"><input className='optBtn' type="button" value="Tasks" /></Link>
+                    <Link to="/Pomodorro"><input className='optBtn' type="button" value="Pomodorro" /></Link>
+                    <input className='optBtn' type="button" value="Coming Soon" />
                 </div>
             </div>
         </main>
