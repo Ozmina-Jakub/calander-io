@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { getFirestore, collection, getDocs, doc, updateDoc } from "firebase/firestore";
+import { useAuth } from '../context/AuthContext';
 
 const Pomodorro = () => {
 
@@ -7,6 +9,13 @@ const Pomodorro = () => {
     const [isRunning, setIsRunning] = useState(false);
     const [showEnd, setShowEnd] = useState(false);
     const [countOffRuns, setCountOffRuns] = useState(0);
+    const [points, setPoints] = useState(0);
+    const { currentUser } = useAuth();
+
+    useEffect(() => {
+        getDocs(collection(getFirestore(), 'userPoints')).then(snap => snap.docs.forEach(ele => ele.data().email === currentUser.email && setPoints({ id: ele.id, ...ele.data() }))).catch(err => console.log(err));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     
     useEffect(() => {
         const timer = setInterval(() => {
@@ -14,13 +23,21 @@ const Pomodorro = () => {
             if(time === 0) {
                 setShowEnd(true); 
                 setTimeout(() => setShowEnd(false), 3000);
+                setPoints(prevState => ({
+                    ...prevState,
+                    points: prevState.points + 5
+                }))
+                updatePoints();
                 setCountOffRuns(prevState => prevState + 1);
                 countOffRuns % 2 === 0 ? setTime(900) : setTime(300);
             }
         }, 1000);
 
         return () => clearInterval(timer);
-      });
+    });
+    
+    const updatePoints = () => updateDoc(doc(getFirestore(), "userPoints", points.id), points);
+
     return ( 
         <main className="content adder">
             <div className="inner pomodorro">

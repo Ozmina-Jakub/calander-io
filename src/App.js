@@ -10,6 +10,7 @@ import Login from './router/Login';
 import Tasks from './router/Tasks';
 import Pomodorro from './router/Pomodorro';
 import Daily from './router/Daily';
+import Profile from './router/Profile';
 import { AuthProvider } from './context/AuthContext';
 import Dashboard from './router/Dashboard';
 
@@ -30,6 +31,7 @@ const App = () => {
             <Route path="/Tasks" element={<Tasks/>}/>
             <Route path="/Daily" element={<Daily/>}/>
             <Route path="/Pomodorro" element={<Pomodorro/>}/>
+            <Route path="/Profile" element={<Profile/>}/>
           </Routes>{/* TODO: make proper anim on page redirect */}
           <Footer></Footer>
         </div>
