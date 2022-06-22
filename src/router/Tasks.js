@@ -1,10 +1,12 @@
 import { useAuth } from '../context/AuthContext';
+import { usePoints } from '../context/PointsContext';
 import { getFirestore, collection, getDocs, doc, updateDoc } from "firebase/firestore";
 import { useState, useEffect, useRef } from 'react';
 import { Link } from "react-router-dom";
 
 const Tasks = () => {
     const { currentUser } = useAuth();
+    const { updatePoints } = usePoints();
 
     const [tasks, setTasks] = useState({ id: "", emaiL: "", todo: [] });
     const [taskUtils, setTasksUtils] = useState({ isAddingTask: false, nameIsEmpty: false, overTaskListEle: {is: false, ele: null}, isChangingProps: false });
@@ -66,6 +68,11 @@ const Tasks = () => {
 
     const update = (task) => updateDoc(doc(getFirestore(), "userTasks", task.id), task);
 
+    const handleCompleteTask = (i) => {
+        updatePoints(10);
+        reset(i);
+    }
+
     return ( 
         <main className="content adder">
             <div className="inner tasks">
@@ -83,6 +90,7 @@ const Tasks = () => {
                                     {ele.desc} 
                                     <input type="button" value="X" className='reset' onClick={() => reset(i)} />
                                     <input type="button" value="C" className='change' onClick={handleChangeProps} />
+                                    <input type="button" value="E" className='complete' onClick={() => handleCompleteTask(i)} />
                                     {taskUtils.overTaskListEle && taskUtils.overTaskListEle.is === true && 
                                         <>
                                             {taskUtils.isChangingProps && 

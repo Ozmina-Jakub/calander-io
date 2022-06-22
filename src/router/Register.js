@@ -15,13 +15,19 @@ const Register = () => {
     const navigate = useNavigate();
 
     const initTask = () => {
-        let docRef = doc(collection(getFirestore(), 'userTasks'));
-        setDoc(docRef, {
+        let docTaskRef = doc(collection(getFirestore(), 'userTasks'));
+        setDoc(docTaskRef, {
             email: emailRef.current.value,
-            id: docRef.id,
+            id: docTaskRef.id,
             todo: [
 
             ]
+        })
+        let docPointsRef = doc(collection(getFirestore(), 'userPoints'));
+        setDoc(docPointsRef, {
+            email: emailRef.current.value,
+            id: docPointsRef.id,
+            points: 300
         })
     }
 

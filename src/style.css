@@ -176,6 +176,21 @@ body {
     width: 200px;
     height: 100%;
 }
+
+.change:hover, .complete:hover {
+    cursor: pointer;
+}   
+
+.complete {
+    position: absolute;
+    right: 55px;
+    top: 5px;
+    padding: 5px 5px;
+    color: #efefef;
+    background-color: rgb(123, 194, 65);
+    border-radius: 3px;
+}
+
 .opt {
     
     width: 100%;
