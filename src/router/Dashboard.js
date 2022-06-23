@@ -12,7 +12,6 @@ const Dashboard = () => {
                     <Link to="/Tasks"><input className='optBtn' type="button" value="Tasks" /></Link>
                     <Link to="/Pomodorro"><input className='optBtn' type="button" value="Pomodorro" /></Link>
                     <Link to="/Profile"><input className='optBtn' type="button" value="Your Profile" /></Link>
-                    <input className='optBtn' type="button" value="Coming Soon" />
                 </div>
             </div>
         </main>

@@ -9,7 +9,6 @@ import Register from './router/Register';
 import Login from './router/Login';
 import Tasks from './router/Tasks';
 import Pomodorro from './router/Pomodorro';
-import Daily from './router/Daily';
 import Profile from './router/Profile';
 import { AuthProvider } from './context/AuthContext';
 import { PointsProvider } from './context/PointsContext';
@@ -31,7 +30,6 @@ const App = () => {
               <Route path="/Login" element={<Login/>}/>
               <Route path="/Dashboard" element={<Dashboard/>}/>
               <Route path="/Tasks" element={<Tasks/>}/>
-              <Route path="/Daily" element={<Daily/>}/>
               <Route path="/Pomodorro" element={<Pomodorro/>}/>
               <Route path="/Profile" element={<Profile/>}/>
             </Routes>{/* TODO: make proper anim on page redirect */}

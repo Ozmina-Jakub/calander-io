@@ -204,7 +204,7 @@ body {
 .optBtn:hover {
     transition: all .2s ease-in-out;
     cursor: pointer;
-    background-color: aqua;
+    background-color: rgb(203, 58, 32);
     color: #efefef;
 }
 
